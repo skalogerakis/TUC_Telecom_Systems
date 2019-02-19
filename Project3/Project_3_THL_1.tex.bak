@@ -1,0 +1,314 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english,greek]{babel}
+\usepackage{parskip}
+\usepackage[margin=1in]{geometry}%or 1in
+\usepackage{makeidx}
+\usepackage{paralist}
+\usepackage{amsfonts, amsmath,amssymb}
+\usepackage{mdwtab}
+\usepackage{graphicx,subfigure}
+\usepackage{subfig}
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhead{}	%default values when empty
+\fancyfoot{}
+\fancyhead[L]{\slshape \MakeUppercase{Εργαστηριακή Άσκηση 3}}
+%\fancyhead[R]{\slshape Ονομα}
+\fancyfoot[C]{\thepage}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\newcommand{\np}{\newpage}	%new page command
+\renewcommand\thesection{\Alph{section}}
+
+\begin{document}
+
+\begin{titlepage}
+	\begin{center}
+	\textsc{\LARGE ΗΜΜΥ Πολυτεχνείου Κρήτης}\\[1.5cm]
+	
+	\textsc{\Large ΤΗΛ 301-Τηλεπικοινωνιακά Συστήματα Ι}\\[0.5cm] 
+	
+	\textsc{\large Χειμερινό Εξάμηνο 2017-2018}\\[0.5cm]
+	
+	\HRule\\[0.45cm]
+	%\line(1,0){400}\\
+	\huge{\bfseries Εργαστηριακή Άσκηση 3}\\
+	[2mm]
+	%\line(1,0){350}
+	\HRule\\[1.5cm]
+	
+	\begin{minipage}{0.4\textwidth}
+		\begin{flushleft}
+			\large
+			\textit{Φοιτητής}\\
+			\textsc{Καλογεράκης Στέφανος}
+			\textsc{ΑΜ:2015030064}
+		\end{flushleft}
+	\end{minipage}
+	~
+	\begin{minipage}{0.4\textwidth}
+		\begin{flushright}
+			\large
+			\textit{Διδάσκων}\\
+			\textsc{Α. Λιαβας} % Supervisor's name
+		\end{flushright}
+	\end{minipage}
+	
+	\vfill
+    \includegraphics[width=5cm]{tuc_logo.jpg} % also works with logo.pdf
+    \vfill
+    
+	\end{center}
+\end{titlepage}
+
+
+\thispagestyle{empty}
+\np
+\tableofcontents
+\np
+
+\section{Μέρος Α}
+\subsection{Δημιουργία δυαδικής ακολουθίας \foreignlanguage{english}{N Bit}}
+Στο πρώτο ερώτημα της τρίτης άσκησης κληθήκαμε να δημιουργήσουμε δυαδική ακολουθία με στοιχεία 4Ν ισοπίθανα \foreignlanguage{english}{bits} όπως κάναμε και στις δύο προηγούμενες εργαστηριακές ασκήσεις. Το Ν που επιλέξαμε ήταν $Ν=300$.
+
+\begin{center}
+	\includegraphics[scale=0.85]{w1.jpg}
+	\captionof{figure}{Κώδικας μέρους Α.1}
+\end{center}
+
+\subsection{Δημιουργία συνάρτησης \foreignlanguage{english}{bits to 4 PAM}}
+Στην συνέχεια, δημιουργήσαμε την συνάρτηση \foreignlanguage{english}{bits to 4 PAM(bit seq,A)}. Η λειτουργία της συνάρτησης αυτής, είναι ότι απεικονίζει την δυαδική ακολουθία εισόδου στις $Xi$ και $Xq$ ακολουθίες \foreignlanguage{english}{4 PAM} χρησιμοποιώντας την κωδικοποίηση \foreignlanguage{english}{Gray}. Η υλοποίηση της συνάρτησης φαίνεται στην παρακάτω εικόνα
+
+\begin{center}
+	\includegraphics[scale=0.7]{w2.jpg}
+	\captionof{figure}{Συνάρτηση ερωτήματος Α.2}
+\end{center}
+
+\subsection{Δημιουργία $X_i$, $X_q$}
+Έπειτα δημιουργήσαμε και απεικονίσαμε τα πρώτα \foreignlanguage{english}{2 Nbits} της ακολουθίας $X_i$ και τα επόμενα \foreignlanguage{english}{2 Nbits} της $X_q$
+
+\begin{center}
+	\includegraphics[scale=0.6]{w3.jpg}
+	\captionof{figure}{Κώδικας μέρους Α.3}
+\end{center}
+
+\subsection{Σχηματισμός κυματομορφών εξόδου $X_i$, $X_q$}
+Φιλτράραμε τις ακολουθίες που δημιουργήσαμε στο προηγούμενο ερώτημα από \foreignlanguage{english}{SRRC} φίλτρο για $T=1sec$, $over=10$,$Ts = 1/Ts$, $a=0.5$, $A = 4$. Ακολουθούν οι κυματομορφές:
+
+\begin{center}
+	\includegraphics[scale=0.6]{1.jpg}
+	\captionof{figure}{Κυματομορφές $X_i$, $X_q$}
+\end{center}
+
+Οι επόμενες κυματομορφές είναι τα περιοδογράμματα των $X_i$, $X_q$ με την χρήση \foreignlanguage{english}{plot} και \foreignlanguage{english}{semilogy}:
+
+\begin{center}
+	\includegraphics[scale=0.6]{2.jpg}
+	\captionof{figure}{Περιοδογραμμα $X_i$, $X_q$ με χρήση \foreignlanguage{english}{plot}}
+\end{center}
+
+\begin{center}
+	\includegraphics[scale=0.6]{3.jpg}
+	\captionof{figure}{Περιοδογραμμα $X_i$, $X_q$ με χρήση \foreignlanguage{english}{semilogy}}
+\end{center}
+\hfill
+
+Παρακάτω επισυνάπτεται ενδεικτικός κώδικας ερωτήματος Α.4
+\begin{center}
+	\includegraphics[scale=0.6]{w4.jpg}
+	\captionof{figure}{Κώδικας μέρους Α.4}
+\end{center}
+\np
+
+\subsection{Σχηματισμός κυματομορφών $X_imod$, $X_qmod$}
+
+Για τον σχηματισμό των κυματομορφών των $X_imod$, $X_qmod$ πολλαπλασιάσαμε τις ακολουθίες $X_i$,  και $X_q$ ,με τους φορείς τους $2cos(2*pi*Fo*t)$ και $-2sin(2*pi*Fo*t)$ αντίστοιχα για $Fo =2Hz$ με σκοπό την διαμόρφωσή τους. Ακολουθούν όπως το προηγούμενο ερώτημα οι κυματομορφές των τελικών σημάτων όπως και τα περιοδογράμματα σε \foreignlanguage{english}{plot} και \foreignlanguage{english}{semilogy}
+
+\begin{center}
+	\includegraphics[scale=0.6]{4.jpg}
+	\captionof{figure}{Κυματομορφές $X_imod$, $X_qmod$}
+\end{center}
+
+\begin{center}
+	\includegraphics[scale=0.6]{5.jpg}
+	\captionof{figure}{Περιοδογραμμα $X_imod$, $X_qmod$ με χρήση \foreignlanguage{english}{plot}}
+\end{center}
+
+\begin{center}
+	\includegraphics[scale=0.6]{6.jpg}
+	\captionof{figure}{Περιοδογραμμα $X_imod$, $X_qmod$ με χρήση \foreignlanguage{english}{semilogy}}
+\end{center}
+\hfill
+
+Παρακάτω επισυνάπτεται ενδεικτικός κώδικας ερωτήματος Α.5
+\begin{center}
+	\includegraphics[scale=0.7]{w5.jpg}
+	\captionof{figure}{Κώδικας μέρους Α.5}
+\end{center}
+Παρατηρώντας τις κυματομορφές βλέπουμε μετακίνηση του φάσματος στην περιοχή $-2Hz$ και $2Hz$ και δύο μέγιστα αντί για ένα. Τα παραπάνω είναι φυσιολογικά αφού τα σήματα πολλαπλασιάστηκαν με δύο ημιτονοειδή σήματα των οποίων το φάσμα είναι στην περιοχή $-2Hz$ και $2Hz$
+\np
+
+\subsection{Άθροιση κυματομορφών $X_imod$, $X_qmod$}
+Στο έκτο ερώτημα ζητήθηκε να σχηματίσουμε και να σχεδιάσουμε την είσοδο $Χmod$ του καναλιού. Η είσοδος του καναλιού είναι το άθροισμα των $X_imod$, $X_qmod$ που υπολογίσαμε στο προηγούμενο ερώτημα. Η κυματομορφή εισόδου και τα περιοδογράμματα ακολουθούν παρακάτω:
+
+\begin{center}
+	\includegraphics[scale=0.6]{7.jpg}
+	\captionof{figure}{Κυματομορφή εισόδου $Xmod$}
+\end{center}
+
+\begin{center}
+	\includegraphics[scale=0.6]{8.jpg}
+	\captionof{figure}{Περιοδογραμματα $Xmod$}
+\end{center}
+Παρατηρείται ένα αρκετά πυκνό φάσμα στην $Xmod$ που οφείλεται στο άθροισμα των $Χ_i$ και $Χ_q$ ενώ αυξάνεται και το πλάτος μετά το άθροισμα. Επίσης, το φάσμα παραμένει μετατοπισμένο γύρω από το $Fo=2Hz$ 
+
+Ενδεικτικός κώδικας ερωτήματος Α.6
+\begin{center}
+	\includegraphics[scale=0.6]{w6.jpg}
+	\captionof{figure}{Κώδικας μέρους Α.6}
+\end{center}
+
+\subsection{Προσθήκη \foreignlanguage{english}{Gaussian} θορύβου}
+Υποθέτοντας ότι το κανάλι είναι ιδανικό, προσθέτουμε λευκό \foreignlanguage{english}{Gaussian} θόρυβο $W(t)$ στην έξοδο του καναλιού με διασπορά $\sigma^2_W$ όπως δίνεται από την εκφώνηση. Χρησιμοποιούμε την συνάρτηση \foreignlanguage{english}{rand} για να μεταβάλουμε τυχαία το πλάτος του σήματος και να προσομοιωθεί έτσι η επίδραση του θορύβου.
+
+\begin{center}
+	\includegraphics[scale=0.6]{w7.jpg}
+	\captionof{figure}{Κώδικας μέρους Α.8}
+\end{center}
+
+\subsection{Διακλάδωση ενθόρυβης κυματομορφής}
+Στο συγκεκριμένο ερώτημα, διακλαδώνουμε την ενθόρυβη κυματομορφή και την πολλαπλασιάζουμε με τους φορείς $\cos(2pFot)$ και $-\sin(2pFot)$ αντίστοιχα με στόχο την λήψη του σήματος από τον δέκτη. 
+
+\begin{center}
+	\includegraphics[scale=0.6]{w8.jpg}
+	\captionof{figure}{Κώδικας μέρους Α.9}
+\end{center}
+
+Ακολουθούν οι κυματομορφές και τα περιοδογράμματα που προέκυψαν
+
+\begin{center}
+	\includegraphics[scale=0.6]{9.jpg}
+	\captionof{figure}{Κυματομορφές $WI$, $WQ$}
+\end{center}
+
+\begin{center}
+	\includegraphics[scale=0.6]{10.jpg}
+	\captionof{figure}{Περιοδογραμμα $WI$, $WQ$ με χρήση \foreignlanguage{english}{plot}}
+\end{center}
+
+\begin{center}
+	\includegraphics[scale=0.6]{11.jpg}
+	\captionof{figure}{Περιοδογραμμα $WI$, $WQ$ με χρήση \foreignlanguage{english}{semilogy}}
+\end{center}
+
+Παρατηρούμε ότι μετά τον θόρυβο έχει μεταβληθεί το εύρος φάσματος παρουσιάζοντας σύγκλιση στις συχνότητες $-4Hz$ και $4Hz$
+
+\subsection{Πέρασμα ενθόρυβων κυματομορφών από \foreignlanguage{english}{SRRC} φίλτρα}
+Ως συνέχεια της άσκησης περάσαμε τις υπολογισμένες κυματομορφές από προσαρμοσμένα φίλτρα (\foreignlanguage{english}{SRRC}). Οι κυματομορφές που προέκυψαν και ακολούθως τα περιοδογράμματα τους ακολουθούν:
+
+\begin{center}
+	\includegraphics[scale=0.55]{12.jpg}
+	\captionof{figure}{Κυματομορφές $YI$, $ΥQ$}
+\end{center}
+
+\begin{center}
+	\includegraphics[scale=0.6]{13.jpg}
+	\captionof{figure}{Περιοδογραμμα $ΥI$, $ΥQ$ με χρήση \foreignlanguage{english}{plot}}
+\end{center}
+
+\begin{center}
+	\includegraphics[scale=0.6]{14.jpg}
+	\captionof{figure}{Περιοδογραμμα $ΥI$, $ΥQ$ με χρήση \foreignlanguage{english}{semilogy}}
+\end{center}
+
+Είναι εμφανές ότι το προσαρμοσμένο φίλτρο (\foreignlanguage{english}{SRRC}) επιτρέπει μόνο τις συχνότητες βασικής ζώνης να περάσουν γεγονός που συμβαίνει και στα δύο σήματα.
+
+\begin{center}
+	\includegraphics[scale=0.6]{w9.jpg}
+	\captionof{figure}{Ενδεικτικός κώδικας μέρους Α.10}
+\end{center}
+
+\subsection{Δειγματοληψία εξόδου προσαρμοσμένων \foreignlanguage{english}{SRRC} φίλτρων}
+
+Για να είναι εμφανής ο $16-QAM$ αστερισμός μας ζητήθηκε να δειγματοληπτήσουμε την έξοδο των προσαρμοσμένων φίλτρων και σχεδιάσουμε την ακολουθία χρησιμοποιώντας την συνάρτηση \foreignlanguage{english}{scatterplot} της \foreignlanguage{english}{matlab}. \textit{Αξίζει να σημειωθεί πραγματοποιήθηκε "\foreignlanguage{english}{tail-cutting}" αποκόπτοντας τις τιμές που είναι ικανές να δημιουργήσουν πρόβλημα κατά την εκτίμηση των σφαλμάτων}
+
+\begin{center}
+	\includegraphics[scale=0.6]{15.jpg}
+	\captionof{figure}{\foreignlanguage{english}{Scatterplot} μετά από δειγματοληψία}
+\end{center}
+
+\begin{center}
+	\includegraphics[scale=0.6]{w10.jpg}
+	\captionof{figure}{Ενδεικτικός κώδικας μέρους Α.11}
+\end{center}
+
+\subsection{Δημιουργία συνάρτησης \foreignlanguage{english}{detect 4 PAM}}
+Σκοπός του συγκεκριμένου ερωτήματος ήταν η δημιουργία της συνάρτησης \foreignlanguage{english}{detect 4 PAM}. Η συγκεκριμένη συνάρτηση υπακούει στο κανόνα του εγγύτερου γείτονα για να αποφασίσει για την ακολουθία εισόδου σύμβολο προς σύμβολο.Εφαρμόσαμε την συνάρτηση και στις δυο ακολουθίες Υ που χρησιμοποιήθηκαν προηγουμένως και προέκυψαν δύο εκτιμώμενες ακολουθίες τις οποίες και απεικονίσαμε με την εντολή \foreignlanguage{english}{scatterplot}. Με τον τρόπο αυτό υπολογίστηκε και ο αριθμός σφαλμάτων απόφασης στα επόμενα ερωτήματα.
+
+\begin{center}
+	\includegraphics[scale=0.6]{16.jpg}
+	\captionof{figure}{\foreignlanguage{english}{Scatterplot} μετά από \foreignlanguage{english}{detect 4PAM} }
+\end{center}
+
+\begin{center}
+	\includegraphics[scale=0.6]{w11.jpg}
+	\captionof{figure}{Ενδεικτικός κώδικας συνάρτησης \foreignlanguage{english}{detect 4PAM} }
+\end{center}
+
+\subsection{Αριθμός σφαλμάτων απόφασης συμβόλου αστερισμoύ \foreignlanguage{english}{16-QAM}}
+Για να υπολογίσουμε τον αριθμό σφαλμάτων απόφασης συμβόλου \foreignlanguage{english}{16-QAM} ελέγχθηκαν τα σύμβολα εξόδου αν είναι ίδια με αυτά της εισόδου. Μετά από την υλοποίηση του κώδικα προέκυψαν 0 σφάλματα απόφασης συμβόλου.
+
+\begin{center}
+	\includegraphics[scale=0.6]{w12.jpg}
+	\captionof{figure}{Ενδεικτικός κώδικας ερωτήματος Α.13 }
+\end{center}
+\np
+\subsection{Δημιουργία συνάρτησης \foreignlanguage{english}{PAM 4 to bits}}
+Στο συγκεκριμένο ερώτημα δημιουργήθηκε η συνάρτηση  \foreignlanguage{english}{PAM 4 to bits} η οποία χρησιμοποιεί την αντίστροφη απεικόνιση \foreignlanguage{english}{Gray}. Πιο συγκεκριμένα, μετατρέπει τα σύμβολα σε δυάδες \foreignlanguage{english}{bits}, και υπολογίζει απο τις αποφάσεις για τις ακολουθίες συμβόλων εισόδου την εκτιμώμενη δυαδική ακολουθία εισόδου.Αποτελεί ουσιαστικά την αντίστροφη συνάρτηση της \foreignlanguage{english}{bits to 4 PAM} που χρησιμοποιήσαμε στην αρχή της άσκησης.
+
+\begin{center}
+	\includegraphics[scale=0.6]{w13.jpg}
+	\captionof{figure}{Συνάρτηση \foreignlanguage{english}{PAM 4 to bits}}
+\end{center}
+
+\subsection{Υπολογισμός αριθμού σφαλμάτων \foreignlanguage{english}{bit}}
+Στο τελευταίο ερώτημα του πρώτου μέρους κληθήκαμε να υπολογίσουμε τον αριθμό σφαλμάτων \foreignlanguage{english}{bit}. Ουσιαστικά ελέγξαμε αν η εκτιμώμενη ακολουθία εξόδου που υπολογίστηκε στο προηγούμενο ερώτημα είναι ίδια με αυτή που δημιουργήσαμε στην αρχή. Το αποτέλεσμα που προκύπτει είναι και πάλι 0 πράγμα που  δείχνει ότι ανακτήθηκαν επιτυχώς όλα τα σύμβολα.
+
+\begin{center}
+	\includegraphics[scale=0.6]{w14.jpg}
+	\captionof{figure}{Ενδεικτικός κώδικας ερωτήματος Α.15 }
+\end{center}
+
+\section{Μέρος Β}
+
+\subsection{Εκτίμηση πιθανότητας σφάλματος συμβόλου/\foreignlanguage{english}{bit} με πείραμα ανεξάρτητων επαναλήψεων (μέθοδος \foreignlanguage{english}{Monte Carlo})}
+
+Στο δεύτερο μέρος της άσκησης ζητήθηκε να εκτιμήσουμε την πιθανότητα σφάλματος συμβόλου και \foreignlanguage{english}{bit} με την χρήση της μεθόδου \foreignlanguage{english}{Monte Carlo}.
+
+O κώδικας που χρησιμοποιήθηκε ήταν αντίστοιχος με το Α μέρος με την διαφορά ότι αυτή την φορά υπολογίσαμε τα σφάλματα για διαφορετικές τιμές του \foreignlanguage{english}{SNR} που δίνονταν από την εκφώνηση. Επιπροσθέτως, υπολογίστηκε η θεωρητική προσέγγιση των σφαλμάτων συμβουλευόμενοι πηγές που φαίνεται στο μέρος του κώδικα που επισυνάπτεται παρακάτω
+
+\begin{center}
+	\includegraphics[scale=0.8]{w15.jpg}
+	\captionof{figure}{Ενδεικτικός κώδικας ερωτήματος Β.1 }
+\end{center}
+
+\subsection{Σχεδιασμός θεωρητικής και πειραματικής πιθανότητας σφάλματος συμβόλου}
+Στην συνέχεια, ζητήθηκε ο σχεδιασμός θεωρητικής και πειραματικής πιθανότητας σφάλματος συμβόλου συναρτήσει του \foreignlanguage{english}{SNR} σε κοινό \foreignlanguage{english}{semilogy}. Όλα τα ζητούμενα υπολογίστηκαν στο προηγούμενο ερώτημα με το διάγραμμα που προκύπτει να είναι
+
+\begin{center}
+	\includegraphics[scale=0.9]{17.jpg}
+	\captionof{figure}{Θεωρητική και πειραματική πιθανότητας σφάλματος συμβόλου}
+\end{center}
+
+Παρατηρείται, όπως βλέπουμε, απόκλιση μεταξύ θεωρητικών και πειραματικών κυματομορφών. Κανονικά θα περιμέναμε οι δύο κυματομορφές να συμπίπτουν γεγονός που δεν συμβαίνει με το σφάλμα που προκάλεσε το λάθος να μην είναι εύκολο να εντοπ
+\subsection{Σχεδιασμός θεωρητικής και πειραματικής πιθανότητας σφάλματος \foreignlanguage{english}{bit}}
+Τέλος, υπολογίστηκε η θεωρητική και πειραματική πιθανότητα σφάλματος \foreignlanguage{english}{bit} συναρτήσει του \foreignlanguage{english}{SNR} σε κοινό \foreignlanguage{english}{semilogy}. Το διάγραμμα της εικόνας 33 είναι το διάγραμμα που προέκυψε.
+
+\begin{center}
+	\includegraphics[scale=0.6]{18.jpg}
+	\captionof{figure}{Θεωρητική και πειραματική πιθανότητας σφάλματος \foreignlanguage{english}{bit}}
+\end{center}
+
+\end{document} 

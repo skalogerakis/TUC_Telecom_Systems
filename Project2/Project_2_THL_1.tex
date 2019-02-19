@@ -1,0 +1,211 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english,greek]{babel}
+\usepackage{parskip}
+\usepackage[margin=1in]{geometry}%or 1in
+\usepackage{makeidx}
+\usepackage{paralist}
+\usepackage{amsfonts, amsmath,amssymb}
+\usepackage{mdwtab}
+\usepackage{graphicx,subfigure}
+\usepackage{subfig}
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhead{}	%default values when empty
+\fancyfoot{}
+\fancyhead[L]{\slshape \MakeUppercase{Εργαστηριακή Άσκηση 2}}
+%\fancyhead[R]{\slshape Ονομα}
+\fancyfoot[C]{\thepage}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\newcommand{\np}{\newpage}	%new page command
+\renewcommand\thesection{\Alph{section}}
+
+\begin{document}
+
+\begin{titlepage}
+	\begin{center}
+	\textsc{\LARGE ΗΜΜΥ Πολυτεχνείου Κρήτης}\\[1.5cm]
+	
+	\textsc{\Large ΤΗΛ 301-Τηλεπικοινωνιακά Συστήματα Ι}\\[0.5cm] 
+	
+	\textsc{\large Χειμερινό Εξάμηνο 2017-2018}\\[0.5cm]
+	
+	\HRule\\[0.45cm]
+	%\line(1,0){400}\\
+	\huge{\bfseries Εργαστηριακή Άσκηση 2}\\
+	[2mm]
+	%\line(1,0){350}
+	\HRule\\[1.5cm]
+	
+	\begin{minipage}{0.4\textwidth}
+		\begin{flushleft}
+			\large
+			\textit{Φοιτητής}\\
+			\textsc{Καλογεράκης Στέφανος}
+			\textsc{ΑΜ:2015030064}
+		\end{flushleft}
+	\end{minipage}
+	~
+	\begin{minipage}{0.4\textwidth}
+		\begin{flushright}
+			\large
+			\textit{Διδάσκων}\\
+			\textsc{Α. Λιαβας} % Supervisor's name
+		\end{flushright}
+	\end{minipage}
+	
+	\vfill
+    \includegraphics[width=5cm]{tuc_logo.jpg} % also works with logo.pdf
+    \vfill
+    
+	\end{center}
+\end{titlepage}
+
+
+\thispagestyle{empty}
+\np
+\tableofcontents
+\np
+
+\section{Μελέτη φασματικού περιεχομένου \foreignlanguage{english}{PAM} κυματομορφών }
+
+\subsection{Δημιουργία αποκομμένων παλμών \foreignlanguage{english}{SRRC} }
+Αρχικά δημιουργήσαμε διαφορετικούς παλμούς \foreignlanguage{english}{SRRC} με διαφορετικούς συνδυασμούς παραμέτρων διαφοροποιώντας το \foreignlanguage{english}{roll-off factor} και το Α ανάλογα με την περίπτωση.\textit{Σε αυτό το σημείο ζητήθηκε μόνο μια φ με συγκεκριμένα χαρακτηριστικά αλλά σε επόμενα ερωτήματα είναι απαραίτητη η χρήση άλλων φ οπότε τις δημιουργούμε εξ αρχής και τις υλοποιούνται σε όλα τα ερωτήματα}
+
+\begin{center}
+	\includegraphics[scale=0.5]{12.jpg}
+	\captionof{figure}{Κώδικας μέρους Α.1}
+\end{center}
+
+
+Στη συνέχεια, με την χρήση των συναρτήσεων \foreignlanguage{english}{fftshift, fft} υπολογίστηκαν οι μετασχηματισμοί \foreignlanguage{english}{Fourier} των παλμών και σχεδιάστηκε η φασματική πυκνότητα ενέργειας σε κλίμακα \foreignlanguage{english}{semilogy}(ημιλογαριθμική). 
+
+Η διαγραμματική αναπαράσταση της φασματικής πυκνότητας για διαφορετικές περιπτώσεις ακολουθεί
+
+\begin{center}
+	\includegraphics[scale=0.55]{1.jpg}
+	\captionof{figure}{Φασματική πυκνότητα ενέργειας σε για Α=3}
+\end{center}
+
+\begin{center}
+	\includegraphics[scale=0.55]{2.jpg}
+	\captionof{figure}{Φασματική πυκνότητα ενέργειας σε για Α=6}
+\end{center}
+
+\subsection{Μετατροπή δυαδικής σειράς σε \foreignlanguage{english}{2-PAM}}
+Το συγκεκριμένο ερώτημα βασίστηκε κατά πολύ στην προηγούμενη άσκηση. Αρχικά δημιουργήσαμε ανεξάρτητα και ισοπίθανα \foreignlanguage{english}{bits} χρησιμοποιώντας την συνάρτηση \foreignlanguage{english}{bits to 2PAM} από την προηγούμενη άσκηση για να απεικονίσουμε τα \foreignlanguage{english}{bits} σε σύμβολα \foreignlanguage{english}{Xn}. Τέλος, έπρεπε βάσει της εξίσωσης $$X(t) = \sum_{n=0}^{N-1} Xn*\phi(t-nT)$$ να μετατοπιστούν κατάλληλα οι συναρτήσεις φ που είχαμε δημιουργήσει στο Α.1 ερώτημα για να δημιουργηθεί το τελικό ζητούμενο σήμα.
+\begin{center}
+	\includegraphics[scale=0.55]{13.jpg}
+	\captionof{figure}{Κώδικας μέρους Α.2}
+\end{center}
+\hfill
+
+Οι διάφορες $Sx$ που υπάρχουν στον κώδικα χρειάζονται στην συνέχεια της άσκησης.
+
+\begin{center}
+	\includegraphics[scale=0.6]{3.jpg}
+	\captionof{figure}{Κυματομορφές μέρους Α.2 όταν Α=3}
+\end{center}
+
+\begin{center}
+	\includegraphics[scale=0.6]{4.jpg}
+	\captionof{figure}{Κυματομορφές μέρους Α.2 όταν Α=8}
+\end{center}
+Παρατηρώντας σε σχέση με την αρχική κυματομορφή ο παράγοντας\foreignlanguage{english}{roll-off} επηρεάζει αναλογικά το πόσο απότομα μειώνεται η τιμή των λοβών ενώ δεν υπάρχει εύκολα αντιληπτή διαφορά για την διαφοροποίση του Α.
+
+\subsection{Υπολογισμός περιοδογράμματος και φασματικής πυκνότητας ισχύος για κωδικοποίηση \foreignlanguage{english}{2 PAM}}
+
+Η κατανομή ισχύος στο πεδίο της συχνότητας απεικονίζεται μέσω του περιοδογράμματος. Σε αυτό το σημείο ζητήθηκαν διαφορετικές υλοποιήσεις του περιοδογράμματος για γίνει κατανοητή η μορφή του.
+ 
+\begin{center}
+	\includegraphics[scale=0.6]{14.jpg}
+	\captionof{figure}{Ενδεικτικός κώδικας μέρους Α.3}
+\end{center}
+
+Ακολουθούν οι κυματομορφές για τις διαφορετικές υλοποιήσεις αρχικά με χρήση της συνάρτησης \foreignlanguage{english}{plot} από την \foreignlanguage{english}{matlab} και έπειτα με την χρήση της \foreignlanguage{english}{semilogy} 
+
+\begin{center}
+	\includegraphics[scale=0.7]{5.jpg}
+	\captionof{figure}{Κυματομορφές μέρους Α.3 με χρήση \foreignlanguage{english}{plot}}
+\end{center}
+
+\begin{center}
+	\includegraphics[scale=0.7]{6.jpg}
+	\captionof{figure}{Κυματομορφές μέρους Α.3 με χρήση \foreignlanguage{english}{semilogy}}
+\end{center}
+
+Παρατηρούμε ότι όσο μεγαλώνει το Α τόσο αυξάνεται ο ρυθμός δειγματοληψίας.\\
+Εν συνεχεία, υπολογίζουμε πειραματικά την φασματική πυκνότητα ισχύος ενώ από το Α.2 ερώτημα είχε υπολογιστεί η θεωρητική τιμή της. Σε αυτό το ερώτημα χρησιμοποιήσαμε μια συγκεκριμένη φ με τις τιμές που δόθηκαν από την εκφώνηση και όχι κάποια από τις τυχαίες που δημιουργήθηκαν.
+
+\begin{center}
+	\includegraphics[scale=0.8]{15.jpg}
+	\captionof{figure}{Ενδεικτικός κώδικας μέρους Α.3 }
+\end{center}
+
+Η κυματομορφή που ακολουθεί είναι ημιλογαριθμικής κλίμακας με την θεωρητική και την πειραματική προσέγγιση να περιλαμβάνονται.
+\hfill
+\begin{center}
+	\includegraphics[scale=0.8]{7.jpg}
+	\captionof{figure}{Φασματική πυκνότητα ισχύος πειραματική και θεωρητική προσέγγιση }
+\end{center}
+
+Παρατηρούμε λοιπόν ότι ουσιαστικά η πειραματική προσέγγιση "πατάει" στην θεωρητική με κάποια μικρή κυμάτωση. Όσο αυξάνονται οι επαναλήψεις του πειράματος η μέση τιμή θα προσεγγίζει την ιδανική-θεωρητική προσέγγιση. Σε θεωρητικό επίπεδο επίσης λαμβάνουμε υπόψιν ότι τα σύμβολα είναι άπειρα. Άρα με την αύξηση του N τα αποτελέσματα είναι πιο κοντά στο ιδανικό. Στο πειραματικό σκέλος όμως παρατηρήθηκε ότι μετά από αύξηση των συμβόλων βελτιώθηκε περισσότερο η προσέγγιση σε σχέση με την αύξηση των επαναλήψεων.
+
+\subsection{Υπολογισμός περιοδογράμματος και φασματικής πυκνότητας ισχύος για κωδικοποίηση \foreignlanguage{english}{4 PAM}}
+
+Στο συγκεκριμένο ερώτημα ακολουθήθηκε παρόμοια διαδικασία με τα ερωτήματα Α.2 και Α.3. Η διαφορά στην συγκεκριμένη περίπτωση ήταν στην χρήση της συνάρτησης \foreignlanguage{english}{bits to 4 PAM}. Ο ρόλος της συνάρτησης αυτής είναι στην μετατροπή ακολουθίας από \foreignlanguage{english}{bits} σε +3,+1,-1,-3. Ο υπόλοιπος κώδικας του ερωτήματος είναι ουσιαστικά ίδιος γι'αυτό και παρακάτω απεικονίζεται μόνο η καινούργια συνάρτηση.
+
+\begin{center}
+	\includegraphics[scale=0.8]{16.jpg}
+	\captionof{figure}{Ενδεικτικός κώδικας \foreignlanguage{english}{bits to 4 PAM} }
+\end{center}
+
+Ακολουθεί όπως το προηγούμενο ερώτημα κυματομορφή ημιλογαριθμικής κλίμακας με την θεωρητική και την πειραματική προσέγγιση να περιλαμβάνονται.
+
+\begin{center}
+	\includegraphics[scale=0.8]{8.jpg}
+	\captionof{figure}{Φασματική πυκνότητα ισχύος πειραματική και θεωρητική προσέγγιση }
+\end{center}
+
+Συγκρίνοντας με τις φασματικές πυκνότητες ισχύος των υλοποιήσεων \foreignlanguage{english}{4 PAM} και \foreignlanguage{english}{2 PAM} βλέπουμε ότι το εύρος φάσματος είναι το ίδιο το οποίο οφείλεται στην χρήση της ίδιας συνάρτησης με καθορισμένο εύρος φάσματος. Αναφορικά με το πλάτος είναι μεγαλύτερο στην περίπτωση του \foreignlanguage{english}{4 PAM}. Αυτό οφείλεται στην κωδικοποίηση με την \foreignlanguage{english}{4 PAM} να χρειάζεται περισσότερη ισχύ για να στείλει σύμβολα αφού η αναγωγή του πλάτους αντιστοιχεί σε τιμή τάσης $V$
+
+\subsection{Υπολογισμός περιοδογράμματος και φασματικής πυκνότητας ισχύος για διπλάσια περίοδο συμβόλου}
+
+Το συγκεκριμένο ερώτημα αποτελεί και πάλι επανάληψη των προηγούμενων ερωτημάτων με την διαφορά ότι διαφοροποιούμε την τιμή της Τ ώστε $T'=2T$ . Αυτό όμως συνεπάγεται στην δημιουργία νέων σημάτων με καινούργιο Τ και καινούργιων περιοδογραμμάτων. Ακολουθεί ενδεικτικός κώδικας
+
+\begin{center}
+	\includegraphics[scale=0.5]{17.jpg}
+	\captionof{figure}{Ενδεικτικός κώδικας ερωτήματος Α.5}
+\end{center}
+
+Έτσι προκύπτουν οι νέες κυματομορφές των περιοδογραμμάτων σε κλίμακα \foreignlanguage{english}{plot} και σε κλίμακα \foreignlanguage{english}{semilogy}
+
+\begin{center}
+	\includegraphics[scale=0.6]{9.jpg}
+	\captionof{figure}{Κυματομορφές μέρους Α.5 με χρήση \foreignlanguage{english}{plot}}
+\end{center}
+
+\begin{center}
+	\includegraphics[scale=0.55]{10.jpg}
+	\captionof{figure}{Κυματομορφές μέρους Α.5 με χρήση \foreignlanguage{english}{semilogy}}
+\end{center}
+
+Συγκρίνοντας με τα αποτελέσματα του ερωτήματος Α.3 η ισχύς παρατηρείται στο μισό εύρος από αρχικά το οποίο είναι αναμενόμενο καθώς διπλασιάζοντας την περίοδο συμβόλου, υποδιπλασιάζεται το εύρος φάσματος όπως προκύπτει και από θεωρία $W = (1+a)/2T$. Αυξημένος παρατηρείται επίσης και ο ρυθμός δειγματοληψίας με την διαφορά να είναι αισθητή παρατηρώντας μόνο τις κυματομορφές των δύο ερωτημάτων.
+
+Ακολουθεί η κυματομορφή της θεωρητικής και πειραματικής προσέγγισης της φασματικής πυκνότητας ισχύος σε ημιλογαριθμική κλίμακα.
+
+\begin{center}
+	\includegraphics[scale=0.55]{11.jpg}
+	\captionof{figure}{Φασματική πυκνότητα ισχύος πειραματική και θεωρητική προσέγγιση με διπλάσιο ρυθμό αποστολής συμβόλου}
+\end{center}
+
+\subsection{Σύγκριση αποτελεσμάτων}
+\subsubsection{Αν θέλατε να στείλετε δεδομένα όσο το δυνατό ταχύτερα έχοντας διαθέσιμο το ίδιο εύρος φάσματος, θα επιλέγατε \foreignlanguage{english}{2-PAM} ή \foreignlanguage{english}{4-PAM}, και γιατί;}
+Υποθέτοντας, ότι τα σύμβολα έρχονται με τον ίδιο ρυθμό Τ θα επιλέγαμε την \foreignlanguage{english}{4-PAM}. Η \foreignlanguage{english}{4-PAM} μεταφέρει δυο \foreignlanguage{english}{bits} ανά σύμβολο και στο ίδιο \foreignlanguage{english}{bandwidth} μπορούν να μεταδοθούν δεδομένα ταχύτερα. Υπάρχει όμως αύξηση της επεξεργαστικής ισχύς που χρειάζονται πομπός και δέκτης για να επιτευχθεί επικοινωνία. Αν όμως υποθέσουμε ότι η επεξεργασία σήματος είναι αμελητέα ταχύτερα στέλνονται τα μηνύματα με την \foreignlanguage{english}{4-PAM} διαμόρφωση
+
+\subsubsection{Αν το διαθέσιμο εύρος φάσματος είναι πολύ ακριβό, θα επιλέγατε περίοδο συμβόλου T ή T’=2T, και γιατί}
+Επιλέγουμε Τ' = 2Τ αφού όπως είδαμε και από τα προηγούμενα ερωτήματα το \foreignlanguage{english}{bandwidth} περιορίζεται(υποδιπλασιάζεται) στην συγκεκριμένη περίπτωση. Αξίζει να σημειωθεί βέβαια ότι απαιτείται αυξημένη ενέργεια για να γίνει επιτυχής μετάδοση. 
+
+\end{document}

@@ -1,0 +1,298 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english,greek]{babel}
+\usepackage{parskip}
+\usepackage[margin=1in]{geometry}%or 1in
+\usepackage{makeidx}
+\usepackage{paralist}
+\usepackage{amsfonts, amsmath,amssymb}
+\usepackage{mdwtab}
+\usepackage{graphicx,subfigure}
+\usepackage{subfig}
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhead{}	%default values when empty
+\fancyfoot{}
+\fancyhead[L]{\slshape \MakeUppercase{Εργαστηριακή Άσκηση 1}}
+%\fancyhead[R]{\slshape Ονομα}
+\fancyfoot[C]{\thepage}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\newcommand{\np}{\newpage}	%new page command
+\renewcommand\thesection{\Alph{section}}
+
+\begin{document}
+
+\begin{titlepage}
+	\begin{center}
+	\textsc{\LARGE ΗΜΜΥ Πολυτεχνείου Κρήτης}\\[1.5cm]
+	
+	\textsc{\Large ΤΗΛ 301-Τηλεπικοινωνιακά Συστήματα Ι}\\[0.5cm] 
+	
+	\textsc{\large Χειμερινό Εξάμηνο 2017-2018}\\[0.5cm]
+	
+	\HRule\\[0.45cm]
+	%\line(1,0){400}\\
+	\huge{\bfseries Εργαστηριακή Άσκηση 1}\\
+	[2mm]
+	%\line(1,0){350}
+	\HRule\\[1.5cm]
+	
+	\begin{minipage}{0.4\textwidth}
+		\begin{flushleft}
+			\large
+			\textit{Φοιτητής}\\
+			\textsc{Καλογεράκης Στέφανος}
+			\textsc{ΑΜ:2015030064}
+		\end{flushleft}
+	\end{minipage}
+	~
+	\begin{minipage}{0.4\textwidth}
+		\begin{flushright}
+			\large
+			\textit{Διδάσκων}\\
+			\textsc{Α. Λιαβας} % Supervisor's name
+		\end{flushright}
+	\end{minipage}
+	
+	\vfill
+    \includegraphics[width=5cm]{tuc_logo.jpg} % also works with logo.pdf
+    \vfill
+    
+	\end{center}
+\end{titlepage}
+
+
+\thispagestyle{empty}
+\np
+\tableofcontents
+\np
+
+\section{Μοντελοποίηση αποκομμένων παλμών \foreignlanguage{english}{SRRC}  }
+
+\subsection{Κατασκευή παλμών \foreignlanguage{english}{SRRC} για διαφορετικό \foreignlanguage{english}{Roll off} }
+
+Ξεκινώντας δημιουργήθηκαν οι ζητούμενοι παλμοί \foreignlanguage{english}{SRRC} από έτοιμη συνάρτηση που δόθηκε στην εκφώνηση χρησιμοποιώντας τις παραμέτρους T=1, \foreignlanguage{english}{$Ts = \frac{1}{over}$, over=10, A=5} ενώ ο συντελεστής \foreignlanguage{english}{roll off} έπαιρνε διαφορετικές τιμές (α =0, 0.5, 1). Έπειτα δημιουργήσαμε σε κοινό \foreignlanguage{english}{plot} τους διαφορετικούς παλμούς για να πραγματοποιήσουμε τις απαραίτητες συγκρίσεις. Παρακάτω παρατίθεται ο σχετικός κώδικας του  ερωτήματος και η γραφική που προέκυψε.
+
+\begin{figure}[ht]
+  \centering
+  \begin{minipage}{0.45\textwidth}
+    \includegraphics[width=\textwidth]{1.jpg}
+    \caption{Κώδικας μέρους Α.1}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.5\textwidth}
+    \includegraphics[width=\textwidth]{2.jpg}
+    \caption{Κοινό \foreignlanguage{english}{plot} παλμών }
+  \end{minipage}
+\end{figure}
+
+Μετά την απεικόνιση των παλμών μπορούμε να παρατηρήσουμε ότι το α παίζει σημαντικό ρόλο στην τελική μορφή των γραφικών με το μέγιστο πλάτος των παλμών να αυξάνεται με την τιμή του α(το μέγιστο πλάτος συναντάται όταν α =1). Επιπροσθέτως, η ταλάντωση που πραγματοποιούν τα σήματα είναι φθίνουσα σε κάθε περίπτωση ενώ όσο μεγαλύτερη η τιμή του α τόσο μεγαλύτερη είναι η απόσβεση των καμπυλών. 
+
+\np
+
+\subsection{Φασματική πυκνότητα ισχύος παλμών}
+
+Στο συγκεκριμένο ερώτημα υπολογίσαμε τους μετασχηματισμούς \foreignlanguage{english}{Fourier} των προηγούμενων παλμών με την χρήση των συναρτήσεων της \foreignlanguage{english}{Matlab fft-fftshift} στον κατάλληλο άξονα συχνοτήτων που δίνεται και πάλι από την εκφώνηση [\foreignlanguage{english}{-Fs}/2,\foreignlanguage{english}{Fs}/2). Αξίζει να σημειωθεί ότι για λόγους κανονικοποίησης πραγματοποιήθηκε πολλαπλασιασμός με \foreignlanguage{english}{Ts}σε κάθε μετασχηματισμό \foreignlanguage{english}{Fourier} ενώ το N που επιλέχτηκε για τα δείγματα στο πεδίο της συχνότητας ήταν δύναμη του 2 για την αποτελεσματικότερη εκτέλεση του αλγόριθμου της \foreignlanguage{english}{Matlab}. Στα σχήματα 4 και 5 που ακολουθούν παρουσιάζεται η φασματική πυκνότητα ενέργειας των παλμών σε κανονική κλίμακα(χρήση  \foreignlanguage{english}{plot}) και σε ημιλογαριθμική(χρήση \foreignlanguage{english}{semilogy}) αντίστοιχα ενώ στο κώδικα του σχήματος παρακάτω έχει παραλειφθεί η εμφάνιση του \foreignlanguage{english}{semilogy} αφού το μόνο πράγμα που διαφοροποιείται σε σχέση με την \foreignlanguage{english}{plot} είναι το όνομα της συνάρτησης που χρησιμοποιείται με τα ίδια πεδία.
+
+
+\includegraphics[width=\textwidth]{3.jpg}
+\captionof{figure}{Κώδικας μέρους Α.1}
+
+\includegraphics[scale=0.75]{4.jpg}
+\captionof{figure}{Φασματική πυκνότητα ενέργειας σε \foreignlanguage{english}{plot}}
+
+\includegraphics[scale=0.70]{5.jpg}
+\captionof{figure}{Φασματική πυκνότητα ενέργειας σε \foreignlanguage{english}{semilogy}}
+
+
+\subsection{Εύρος φάσματος παλμών}
+
+Το θεωρητικό εύρος φάσματος των άπειρης διάρκειας παλμών είναι $BW = \frac{1+a}{2T}$. Πραγματοποιώντας αντικατάσταση του τύπου με τα δεδομένα που προέκυψαν από την εκφώνηση προκύπτει ότι
+
+\begin{table}[ht]
+	\centering
+	\caption{Πίνακας θεωρητικού εύρους φάσματος}
+	\begin{tabular}{c|r}
+		a & \foreignlanguage{english}{BW}\\
+		\hline
+		0 & 50\\
+		0.5 & 75\\
+		1 & 100\\
+	\end{tabular}
+\end{table}
+
+Γνωρίζουμε όμως, ότι στην πράξη οι αποκομμένοι παλμοί έχουν θεωρητικό άπειρο εύρος φάσματος και οφείλουμε να ορίσουμε πιο πρακτικά το εύρος φάσματος. Για αυτό τον λόγο σχεδιάζουμε μια οριζόντια γραμμή με τιμή $ c = \frac{T}{10^3}$ θεωρώντας ότι οι τιμές που βρίσκονται κάτω απο αυτή την γραμμή πρακτικά μηδέν.
+
+
+\includegraphics[scale=0.70]{6.jpg}
+\captionof{figure}{Εύρος φάσματος}
+
+Από το σχήμα 6 και με την χρήση του \foreignlanguage{english}{zoom} μπορούμε να υπολογίσουμε τα εξής
+\np
+
+\begin{table}[ht]
+	\centering
+	\caption{Πίνακας εύρους φάσματος όταν $ c = \frac{T}{10^3}$}
+	\begin{tabular}{c|r}
+		a & \foreignlanguage{english}{BW}\\
+		\hline
+		0 & 71\\
+		0.5 & 76\\
+		1 & 99\\
+	\end{tabular}
+\end{table}
+
+Αναφορικά με την απόδοση των παλμών θα ισχύει ότι αποδοτικότερος είναι ο παλμός με το μικρότερο δυνατό εύρος φάσματος. Επομένως σε αυτή την περίπτωση ο πιο αποδοτικός παλμός είναι για α=0. Αν θεωρήσουμε αντιθέτως ότι η οριζόντια γραμμή έχει τιμή $ c = \frac{T}{10^5}$ και πάλι από το σχήμα 6 μπορούμε να συμπεράνουμε ότι
+
+\begin{table}[ht]
+	\centering
+	\caption{Πίνακας εύρους φάσματος όταν $ c = \frac{T}{10^5}$}
+	\begin{tabular}{c|r}
+		a & \foreignlanguage{english}{BW}\\
+		\hline
+		0 & 175\\
+		0.5 & 100\\
+		1 & 110\\
+	\end{tabular}
+\end{table}
+Σε αυτή την περίπτωση ο πιο αποδοτικός παλμός είναι για α=0.5 και επομένως παρατηρούμε ότι δεν υπάρχει κάποιος παλμός που να είναι σίγουρα βέλτιστος ως προς το εύρος καθώς επηρεάζεται από την γραμμή που θα ορίσουμε ως μηδέν.
+\hfill
+\includegraphics[width=\textwidth]{7.jpg}
+\captionof{figure}{Κώδικας μέρους Α.3}
+\np
+\section{Ορθοκανονικότητα παλμών}
+
+\subsection{Δημιουργία καθυστερημένων παλμών και υπολογισμός γινομένου και ολοκληρώματος}
+
+Ακολουθώντας τις οδηγίες της εκφώνησης σχεδιάστηκαν αρχικά σε κοινό \foreignlanguage{english}{plot} οι παλμοί $φ(t)$ και $φ(t-kΤ)$ για όλες τις περιπτώσεις. Επειδή αρχικά ζητήθηκε απλή απεικόνιση των παλμών χρησιμοποιήθηκε ο κώδικας των προηγούμενων ερωτημάτων και έγινε μια απλή μετατόπιση στον χρόνο δεξιά κατά κΤ όπως φαίνεται και παρακάτω 
+
+\includegraphics[width=\textwidth]{8.jpg}
+\captionof{figure}{Ενδεικτικός κώδικας μέρους Β.1.1}
+\hfill
+
+Όλες οι γραφικές του ερωτήματος ακολουθούν στα σχήματα 9-14
+
+
+\begin{figure}[ht]
+  \centering
+  \begin{minipage}{0.45\textwidth}
+    \includegraphics[width=\textwidth]{9.jpg}
+    \caption{Γραφική για α=0 και κ=0}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.45\textwidth}
+    \includegraphics[width=\textwidth]{10.jpg}
+    \caption{Γραφική για α=0 και κ=1}
+  \end{minipage}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \begin{minipage}{0.45\textwidth}
+    \includegraphics[width=\textwidth]{11.jpg}
+    \caption{Γραφική για α=0.5 και κ=0}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.45\textwidth}
+    \includegraphics[width=\textwidth]{12.jpg}
+    \caption{Γραφική για α=0.5 και κ=1}
+  \end{minipage}
+\end{figure}
+
+\begin{figure}[!ht]
+  \centering
+  \begin{minipage}{0.45\textwidth}
+    \includegraphics[width=\textwidth]{13.jpg}
+    \caption{Γραφική για α=1 και κ=0}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.45\textwidth}
+    \includegraphics[width=\textwidth]{14.jpg}
+    \caption{Γραφική για α=1 και κ=1}
+  \end{minipage}
+\end{figure}
+
+\np
+\hfill
+Στην συνέχεια του ερωτήματος ζητήθηκε το γινόμενο των παλμών $φ(t)$ και $φ(t-kΤ)$. Σε αυτή την περίπτωση έπρεπε στον κώδικα να τοποθετήσουμε μηδενικά στην αρχή της κάθε $φ(t)$ μέχρι το $kT$ με βήμα $Ts$ και να αποκόψουμε αντίστοιχα από το τέλος του
+
+\includegraphics[width=\textwidth]{15.jpg}
+\captionof{figure}{Ενδεικτικός κώδικας μέρους Β.1.2}
+
+\begin{figure}[ht]
+  \centering
+  \begin{minipage}{0.45\textwidth}
+    \includegraphics[width=\textwidth]{16.jpg}
+    \caption{Γινόμενο όταν κ=0}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.45\textwidth}
+    \includegraphics[width=\textwidth]{17.jpg}
+    \caption{Γινόμενο όταν κ=1}
+  \end{minipage}
+\end{figure}
+
+Τέλος, υπολογίσαμε για κ=0 και κ=1 το ολοκλήρωμα του γινομένου με τιμές
+\hfill
+\np
+
+\begin{table}[ht]
+	\centering
+	\caption{Τιμές ολοκληρώματος γινομένου}
+	\begin{tabular}{l|c|r}
+		\foreignlanguage{english}{Integral}&k=0&k=1\\
+		\hline
+		$φΑ$ & 0,9644 & -0,0680\\
+		$φΒ$ & 0,9813 & -0,0667\\
+		$φC$ & 0,9745 & -0,0222\\
+	\end{tabular}
+\end{table}
+
+Από την θεωρία αναμέναμε για την ορθοκανονικότητα πρέπει το εμβαδόν να είναι ίσο με 1. Παρατηρείται λοιπόν, ότι για $k=0$ ικανοποιείται η συγκεκριμένη ιδιότητα με πολύ μικρή απόκλιση με την προσέγγιση να βελτιώνεται όσο αυξάνεται το a
+\section{Σύστημα διαμόρφωσης \foreignlanguage{english}{2-PAM}}
+
+\subsection{Δημιουργία \foreignlanguage{english}{N-bits} δυαδικών συμβόλων }
+
+Σε αυτό το ερώτημα απλά πραγματοποιήθηκε η δημιουργία μια σειράς δυαδικών συμβόλων μέσω της εντολής $b = (sign(rand(N,1))+1)/2$ που δινόταν από την εκφώνηση. Σκοπός ήταν η δημιουργία μιας κατανομής που να αποτελείται από 0 και 1 για να παράγουμε στην συνέχεια ακολουθία \foreignlanguage{english}{2-PAM}
+\subsection{Υλοποίηση \foreignlanguage{english}{2-PAM}}
+
+Μετά από την δημιουργία του \foreignlanguage{english}{b} υλοποιήσαμε την συνάρτηση που ακολουθεί
+
+\includegraphics[scale=0.75]{21.jpg}
+\captionof{figure}{Κώδικας συνάρτησης \foreignlanguage{english}{C.2.a}}
+
+Η συνάρτηση παίρνει ως όρισμα την ακολουθία \foreignlanguage{english}{b} και παράγει έξοδο ακολουθία συμβόλων με την απεικόνιση \foreignlanguage{english}{2-PAM} στην οποία ισχύει ότι όταν είσοδος 0 η έξοδος είναι +1 ενώ όταν είσοδος 1 η έξοδος είναι -1
+
+\paragraph{}
+Εν συνεχεία, μας ζητήθηκε η προσομοίωση ενός σήματος $Xd(t)=$ $\sum_{k=0}^{N-1} Xk*δ(t-kT)$ μέσω της εντολής $X_delta = 1/Ts*upsample(X,over)$. Η μόνη ουσιαστική παραμετροποίηση που απαιτήθηκε ήταν ο άξονας του χρόνου 
+
+\includegraphics[width=\textwidth]{22.jpg}
+
+Το συγκεκριμένο σήμα απεικονίζεται στο σχήμα 19 
+
+\includegraphics[scale=0.6]{18.jpg}
+\captionof{figure}{Απεικόνιση σήματος \foreignlanguage{english}{Xd}}
+
+Ο υπολογισμός της συνέλιξης του σήματος με μια συνάρτηση φ ήταν το επόμενο ζητούμενο της άσκησης. Αξίζει να σημειωθεί ότι η φ έπρεπε να οριστεί ξανά και δεν μπορούσε να χρησιμοποιηθεί έτοιμη απο τα πρώτα ερωτήματα καθώς άλλαξε η τιμή του Τ που την επηρεάζει. Ο άξονας του χρόνου κατασκευάστηκε χρησιμοποιώντας την \foreignlanguage{english}{linspace} παίρνοντας δείγματα όσο το μήκος της συνέλιξης.
+\hfill
+\includegraphics[width=\textwidth]{23.jpg}
+
+Το γραφικό αποτέλεσμα της συνέλιξης ακολουθεί στο σχήμα 20 
+
+\includegraphics[width=\textwidth]{19.jpg}
+\captionof{figure}{Συνέλιξη $X(t)$}
+\hfill
+
+Τέλος ζητήθηκε η προσομοίωση της συνέλιξης $Z(t)$ όπου είναι ίδια με το προηγούμενο ερώτημα με την διαφορά ότι το σήμα $X(t)$ συνελίσσεται με το  φ(-τ) και η σύγκριση των τιμών $Ζ(κΤ)$ με $Xk$ με την εντολή $stem([0:N-1]*T,X)$. Η γραφική που προκύπτει είναι η εξής 
+
+\includegraphics[width=\textwidth]{20.jpg}
+\captionof{figure}{Συνέλιξη $Z(t)$ και η σύγκριση με $Xk$}
+
+Το αποτέλεσμα του σχήματος 21 ήταν αναμενόμενο με την φ να είναι ορθοκανονική όπως αποδείχτηκε απο το προηγούμενο ερώτημα και επομένως το αποτέλεσμα της συνέλιξης ήταν ίδιο ενώ με την δειγματοληψία επαληθεύσαμε απο το πλάτος ότι η δειγματοληψία είναι σωστή 
+
+\includegraphics[width=\textwidth]{24.jpg}
+\captionof{figure}{Κώδικας μέρους \foreignlanguage{english}{C.2.d}}
+
+\end{document}
